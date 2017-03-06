@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 @asyncio.coroutine
-def build_user_conversation_list(client):
+def build_user_conversation_list(client, max_converations=100, max_events=1):
     """Return UserList from initial contact data and an additional request.
 
     The initial data contains the user's contacts, but there may be conversions
@@ -25,8 +25,8 @@ def build_user_conversation_list(client):
         yield from client.sync_recent_conversations(
             hangouts_pb2.SyncRecentConversationsRequest(
                 request_header=client.get_request_header(),
-                max_conversations=100,
-                max_events_per_conversation=1,
+                max_conversations=max_converations,
+                max_events_per_conversation=max_events,
                 sync_filter=[hangouts_pb2.SYNC_FILTER_INBOX],
             )
         )
