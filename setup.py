@@ -65,22 +65,22 @@ with open('README.rst') as f:
 # hangups from breaking when new versions of dependencies are released,
 # especially for end-users (non-developers) who use pip to install hangups.
 install_requires = [
-    'ConfigArgParse==0.11.0',
-    'aiohttp>=1.2,<1.3',
-    'appdirs==1.4.0',
-    'readlike==0.1.2',
-    'requests>=2.6.0,<3',  # uses semantic versioning (after 2.6)
-    'ReParser==1.4.3',
-    'protobuf>=3.1.0,<3.2.0',
-    'urwid==1.3.1',
-    'MechanicalSoup==0.6.0',
+    'ConfigArgParse>=0.11.0',
+    'aiohttp>=1.2',
+    'appdirs>=1.4.0',
+    'readlike>=0.1.2',
+    'requests>=2.6.0',  # uses semantic versioning (after 2.6)
+    'ReParser>=1.4.3',
+    'protobuf>=3.1.0',
+    'urwid>=1.3.1',
+    'MechanicalSoup>=0.6.0',
 ]
 
 
 if sys.version_info < (3, 4, 3):
     # For Python earlier than 3.4.3, use a backported asyncio that fixes an
     # issue with an exception being logged on exit.
-    install_requires.append('asyncio==3.4.3')
+    install_requires.append('asyncio>=3.4.3')
 
 
 setup(
@@ -109,10 +109,10 @@ setup(
     packages=['hangups', 'hangups.ui'],
     install_requires=install_requires,
     tests_require=[
-        'pytest==3.0.5',
-        'pylint==1.6.4',
-        'pycodestyle==2.2.0',
-        'httpretty==0.8.14',
+        'pytest>=3.0.5',
+        'pylint>=1.6.4',
+        'pycodestyle>=2.2.0',
+        'httpretty>=0.8.14',
     ],
     cmdclass={
         'test': PytestCommand,
