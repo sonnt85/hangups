@@ -99,7 +99,7 @@ def _sync_all_conversations(client):
     request = hangouts_pb2.SyncRecentConversationsRequest(
         request_header=client.get_request_header(),
         max_conversations=CONVERSATIONS_PER_REQUEST,
-        max_events_per_conversation=1,
+        max_events_per_conversation=100,
         sync_filter=[
             hangouts_pb2.SYNC_FILTER_INBOX,
             hangouts_pb2.SYNC_FILTER_ARCHIVED,
